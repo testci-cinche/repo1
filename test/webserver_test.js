@@ -1,5 +1,6 @@
 var page = require('webpage').create();
 var system = require('system');
+//var Unit = require('deadunit');
 
 function fail() {
   phantom.exit(1);
@@ -10,8 +11,12 @@ page.open('http://127.0.0.1:7000/test.html', function(status) {
 
   // Render
   if(status === "success") {
-    page.render('testlogs/test_html.png');
+    console.log("success");
+  } else {
+    fail();
   }
+  
+  page.render('testlogs/test_html.png');
 
   // Check title
   var title = page.evaluate(function() {
@@ -19,5 +24,6 @@ page.open('http://127.0.0.1:7000/test.html', function(status) {
   });
 
   console.log('Page title is ' + title);
-  fail();
+  
+  phantom.exit();
 });
