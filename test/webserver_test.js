@@ -1,6 +1,5 @@
 var page = require('webpage').create();
 var system = require('system');
-//var Unit = require('deadunit');
 
 function fail() {
   phantom.exit(1);
@@ -25,5 +24,7 @@ page.open('http://127.0.0.1:7000/test.html', function(status) {
 
   console.log('Page title is ' + title);
   
-  phantom.exit();
+  // exit
+
+  phantom.exit(0);
 });
